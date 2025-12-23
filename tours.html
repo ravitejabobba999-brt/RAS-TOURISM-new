@@ -64,8 +64,8 @@
           <h1>Tours</h1>
           <p>
             Discover unforgettable travel experiences with our curated
-            collection of tours. Explore by destination, travel style, or date
-            to find the adventure that's perfect for you.
+            collection of tours. <br />Explore by destination, travel style, or
+            date to find the adventure that's perfect for you.
           </p>
           <nav class="breadcrumbs">
             <ol>
@@ -139,6 +139,59 @@
           <div class="row mb-5" data-aos="fade-up" data-aos-delay="300">
             <div class="col-12">
               <h3 class="section-subtitle mb-4">Featured Tours</h3>
+              <style>
+                /* Fix uneven heights for Swiper slides */
+                .featured-tours-slider .swiper-wrapper {
+                  display: flex;
+                  align-items: stretch;
+                }
+                .featured-tours-slider .swiper-slide {
+                  display: flex;
+                  height: auto;
+                  /* Make swiper-slide items stretch in height */
+                }
+                .featured-tours-slider .featured-tour-card {
+                  display: flex;
+                  flex-direction: column;
+                  height: 100%;
+                  /* Ensure cards stretch fully in column */
+                  background: #fff;
+                  border-radius: 12px;
+                  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+                  overflow: hidden;
+                }
+                .featured-tours-slider .tour-image {
+                  width: 100%;
+                  height: 200px;
+                  overflow: hidden;
+                  flex-shrink: 0;
+                }
+                .featured-tours-slider .tour-image img {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                }
+                .featured-tours-slider .tour-content {
+                  flex: 1 1 auto;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-between;
+                  padding: 1.25rem;
+                }
+                .featured-tours-slider .tour-content p {
+                  flex: 1;
+                  margin-bottom: 1rem;
+                }
+                .featured-tours-slider .tour-meta {
+                  margin-bottom: 1rem;
+                }
+                @media (max-width: 767px) {
+                  .featured-tours-slider .tour-image {
+                    height: 150px;
+                  }
+                }
+              </style>
               <div class="featured-tours-slider swiper init-swiper">
                 <script type="application/json" class="swiper-config">
                   {
@@ -189,7 +242,7 @@
                           >
                           <span class="price">From $899</span>
                         </div>
-                        <a href="tour-details.html" class="btn btn-primary"
+                        <a href="contact.html" class="btn btn-primary"
                           >View Details</a
                         >
                       </div>
@@ -219,7 +272,7 @@
                           >
                           <span class="price">From $1299</span>
                         </div>
-                        <a href="tour-details.html" class="btn btn-primary"
+                        <a href="contact.html" class="btn btn-primary"
                           >View Details</a
                         >
                       </div>
@@ -249,7 +302,7 @@
                           >
                           <span class="price">From $1599</span>
                         </div>
-                        <a href="tour-details.html" class="btn btn-primary"
+                        <a href="contact.html" class="btn btn-primary"
                           >View Details</a
                         >
                       </div>
@@ -279,7 +332,7 @@
                           >
                           <span class="price">From $1899</span>
                         </div>
-                        <a href="tour-details.html" class="btn btn-primary"
+                        <a href="contact.html" class="btn btn-primary"
                           >View Details</a
                         >
                       </div>
@@ -309,7 +362,7 @@
                           >
                           <span class="price">From $1149</span>
                         </div>
-                        <a href="tour-details.html" class="btn btn-primary"
+                        <a href="contact.html" class="btn btn-primary"
                           >View Details</a
                         >
                       </div>
@@ -338,7 +391,7 @@
                           >
                           <span class="price">From $749</span>
                         </div>
-                        <a href="tour-details.html" class="btn btn-primary"
+                        <a href="contact.html" class="btn btn-primary"
                           >View Details</a
                         >
                       </div>
@@ -367,7 +420,7 @@
                           >
                           <span class="price">From $1399</span>
                         </div>
-                        <a href="tour-details.html" class="btn btn-primary"
+                        <a href="contact.html" class="btn btn-primary"
                           >View Details</a
                         >
                       </div>
@@ -396,7 +449,7 @@
                           >
                           <span class="price">From $2299</span>
                         </div>
-                        <a href="tour-details.html" class="btn btn-primary"
+                        <a href="contact.html" class="btn btn-primary"
                           >View Details</a
                         >
                       </div>
@@ -481,7 +534,7 @@
                           accommodations and gourmet dining.
                         </p>
                         <span class="urgency">Only 3 seats left!</span>
-                        <a href="booking.html" class="btn btn-accent"
+                        <a href="contact.html" class="btn btn-accent"
                           >Book Now</a
                         >
                       </div>
@@ -504,7 +557,7 @@
                           wildlife in their natural habitat.
                         </p>
                         <span class="urgency">Limited time offer!</span>
-                        <a href="booking.html" class="btn btn-accent"
+                        <a href="contact.html" class="btn btn-accent"
                           >Book Now</a
                         >
                       </div>
@@ -525,32 +578,38 @@
           <!-- Tour Grid -->
           <div class="row" data-aos="fade-up" data-aos-delay="600">
             <div class="col-12">
-              <h3 class="section-subtitle mb-4">All Tours</h3>
+              <h3 class="section-subtitle mb-4">Domestic Tours</h3>
               <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
                   <div class="tour-card">
                     <div class="tour-image">
                       <img
-                        src="assets/img/travel/tour-3.webp"
-                        alt="Swiss Alps"
+                        src="assets/img/destinations/destitaj1.jpg"
+                        alt="Taj Mahal"
                         class="img-fluid"
                       />
-                      <div class="tour-price">$749</div>
+                      <div class="tour-price">10,000/-</div>
                     </div>
                     <div class="tour-content">
-                      <h4>Swiss Alps Adventure</h4>
+                      <h4>Taj Mahal</h4>
                       <p>
-                        Experience breathtaking mountain views and charming
-                        alpine villages in the heart of Switzerland.
+                        Agra is famous for the Taj Mahal, one of the Seven
+                        Wonders of the World. The city showcases Mughal
+                        architecture with attractions like Agra Fort and
+                        Fatehpur Sikri. It’s a must-visit destination for
+                        history and culture lovers.
                       </p>
+
                       <div class="tour-details">
-                        <span><i class="bi bi-clock"></i> 6 Days</span>
+                        <!-- <span><i class="bi bi-clock"></i> 1 Days</span> -->
                         <span
                           ><i class="bi bi-star-fill"></i> 4.8 (124
                           reviews)</span
                         >
                       </div>
-                      <a href="#" class="btn btn-outline-primary">View Tour</a>
+                      <a href="#" class="btn btn-outline-primary"
+                        >Contact Now</a
+                      >
                     </div>
                   </div>
                 </div>
@@ -558,26 +617,30 @@
                   <div class="tour-card">
                     <div class="tour-image">
                       <img
-                        src="assets/img/travel/tour-11.webp"
+                        src="assets/img/destinations/destimana1.jpg"
                         alt="Iceland"
                         class="img-fluid"
                       />
-                      <div class="tour-price">$1199</div>
+                      <div class="tour-price">10,000/-</div>
                     </div>
                     <div class="tour-content">
-                      <h4>Iceland Northern Lights</h4>
+                      <h4>Mountain Adventure Paradise</h4>
                       <p>
-                        Chase the aurora borealis and explore ice caves,
-                        geysers, and dramatic waterfalls.
+                        Manali is a popular hill station known for snow-capped
+                        mountains, scenic valleys, and adventure activities.
+                        Visitors enjoy trekking, paragliding, river rafting, and
+                        beautiful views throughout the year.
                       </p>
                       <div class="tour-details">
-                        <span><i class="bi bi-clock"></i> 8 Days</span>
+                        <!-- <span><i class="bi bi-clock"></i> 8 Days</span> -->
                         <span
                           ><i class="bi bi-star-fill"></i> 4.9 (89
                           reviews)</span
                         >
                       </div>
-                      <a href="#" class="btn btn-outline-primary">View Tour</a>
+                      <a href="#" class="btn btn-outline-primary"
+                        >Contact Now</a
+                      >
                     </div>
                   </div>
                 </div>
@@ -585,26 +648,30 @@
                   <div class="tour-card">
                     <div class="tour-image">
                       <img
-                        src="assets/img/travel/tour-18.webp"
+                        src="assets/img/destinations/destigoa1.jpg"
                         alt="Morocco"
                         class="img-fluid"
                       />
-                      <div class="tour-price">$899</div>
+                      <div class="tour-price">10,000/-</div>
                     </div>
                     <div class="tour-content">
-                      <h4>Magical Morocco Tour</h4>
+                      <h4>Beach Capital of India</h4>
                       <p>
-                        Discover ancient medinas, sahara desert, and vibrant
-                        markets in this exotic destination.
+                        Goa is famous for its golden beaches, nightlife,
+                        Portuguese heritage, and water sports. It’s perfect for
+                        relaxation, parties, and family holidays with a mix of
+                        culture and fun.
                       </p>
                       <div class="tour-details">
-                        <span><i class="bi bi-clock"></i> 9 Days</span>
+                        <!-- <span><i class="bi bi-clock"></i> 9 Days</span> -->
                         <span
                           ><i class="bi bi-star-fill"></i> 4.7 (156
                           reviews)</span
                         >
                       </div>
-                      <a href="#" class="btn btn-outline-primary">View Tour</a>
+                      <a href="#" class="btn btn-outline-primary"
+                        >Contact Now</a
+                      >
                     </div>
                   </div>
                 </div>
@@ -612,26 +679,30 @@
                   <div class="tour-card">
                     <div class="tour-image">
                       <img
-                        src="assets/img/travel/tour-5.webp"
+                        src="assets/img/destinations/destijai1.jpg"
                         alt="Peru"
                         class="img-fluid"
                       />
-                      <div class="tour-price">$1399</div>
+                      <div class="tour-price">10,000/-</div>
                     </div>
                     <div class="tour-content">
-                      <h4>Peru Machu Picchu Trek</h4>
+                      <h4>The Pink City of India</h4>
                       <p>
-                        Hike the legendary Inca Trail and discover the lost city
-                        of Machu Picchu.
+                        Jaipur is known for its royal palaces, forts, and rich
+                        heritage. Major attractions include Amer Fort, Hawa
+                        Mahal, and City Palace. It offers a perfect blend of
+                        history, culture, and traditional shopping.
                       </p>
                       <div class="tour-details">
-                        <span><i class="bi bi-clock"></i> 12 Days</span>
+                        <!-- <span><i class="bi bi-clock"></i> 12 Days</span> -->
                         <span
                           ><i class="bi bi-star-fill"></i> 4.9 (203
                           reviews)</span
                         >
                       </div>
-                      <a href="#" class="btn btn-outline-primary">View Tour</a>
+                      <a href="#" class="btn btn-outline-primary"
+                        >Contact Now</a
+                      >
                     </div>
                   </div>
                 </div>
@@ -639,26 +710,30 @@
                   <div class="tour-card">
                     <div class="tour-image">
                       <img
-                        src="assets/img/travel/tour-26.webp"
+                        src="assets/img/destinations/destikash1.jpg"
                         alt="Vietnam"
                         class="img-fluid"
                       />
-                      <div class="tour-price">$679</div>
+                      <div class="tour-price">10,000/-</div>
                     </div>
                     <div class="tour-content">
-                      <h4>Vietnam Discovery</h4>
+                      <h4>Paradise on Earth</h4>
                       <p>
-                        From bustling Hanoi to serene Ha Long Bay, explore
-                        Vietnam's diverse landscapes.
+                        Kashmir is known for its breathtaking landscapes,
+                        houseboats, gardens, and snow-covered mountains.
+                        Destinations like Srinagar, Gulmarg, and Pahalgam
+                        attract nature lovers and honeymooners.
                       </p>
                       <div class="tour-details">
-                        <span><i class="bi bi-clock"></i> 10 Days</span>
+                        <!-- <span><i class="bi bi-clock"></i> 10 Days</span> -->
                         <span
                           ><i class="bi bi-star-fill"></i> 4.6 (178
                           reviews)</span
                         >
                       </div>
-                      <a href="#" class="btn btn-outline-primary">View Tour</a>
+                      <a href="#" class="btn btn-outline-primary"
+                        >Contact Now</a
+                      >
                     </div>
                   </div>
                 </div>
@@ -666,26 +741,30 @@
                   <div class="tour-card">
                     <div class="tour-image">
                       <img
-                        src="assets/img/travel/tour-13.webp"
+                        src="assets/img/destinations/destikera1.jpg"
                         alt="Australia"
                         class="img-fluid"
                       />
-                      <div class="tour-price">$1799</div>
+                        <div class="tour-price">10,000/-</div>
                     </div>
                     <div class="tour-content">
-                      <h4>Australia Highlights</h4>
+                      <h4>God's Own Country</h4>
                       <p>
-                        Explore Sydney, Melbourne, and the Great Barrier Reef in
-                        this comprehensive tour.
+                        Kerala is famous for its backwaters, hill stations,
+                        beaches, and Ayurvedic treatments. Popular places
+                        include Munnar, Alleppey, and Kovalam. It’s ideal for
+                        peaceful and nature-focused travel.
                       </p>
                       <div class="tour-details">
-                        <span><i class="bi bi-clock"></i> 14 Days</span>
+                        <!-- <span><i class="bi bi-clock"></i> 14 Days</span> -->
                         <span
                           ><i class="bi bi-star-fill"></i> 4.8 (95
                           reviews)</span
                         >
                       </div>
-                      <a href="#" class="btn btn-outline-primary">View Tour</a>
+                      <a href="#" class="btn btn-outline-primary"
+                        >Contact Now</a
+                      >
                     </div>
                   </div>
                 </div>
