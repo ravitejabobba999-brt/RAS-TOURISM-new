@@ -141,13 +141,13 @@
             <div class="contact-form-wrapper">
               <h2 class="text-center mb-4">Get in Touch</h2>
 
-              <form id="contact-form" class="php-email-form" novalidate>
+              <form id="contact-form" class="php-email-form" action="forms/contact.php" method="post">
                 <div class="row g-3">
                   <div class="col-md-6">
                     <div class="form-group">
                       <div class="input-with-icon">
                         <i class="bi bi-person"></i>
-                        <input type="text" class="form-control" name="name" placeholder="First Name" required="">
+                        <input type="text" class="form-control" name="name" placeholder="First Name" required minlength="2" autocomplete="name">
                       </div>
                     </div>
                   </div>
@@ -156,7 +156,7 @@
                     <div class="form-group">
                       <div class="input-with-icon">
                         <i class="bi bi-envelope"></i>
-                        <input type="email" class="form-control" name="email" placeholder="Email Address" required="">
+                        <input type="email" class="form-control" name="email" placeholder="Email Address" required autocomplete="email">
                       </div>
                     </div>
                   </div>
@@ -165,7 +165,7 @@
                     <div class="form-group">
                       <div class="input-with-icon">
                         <i class="bi bi-text-left"></i>
-                        <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                        <input type="text" class="form-control" name="subject" placeholder="Subject" required minlength="3" autocomplete="off">
                       </div>
                     </div>
                   </div>
@@ -174,7 +174,7 @@
                     <div class="form-group">
                       <div class="input-with-icon">
                         <i class="bi bi-chat-dots message-icon"></i>
-                        <textarea class="form-control" name="message" placeholder="Write Message..." style="height: 180px" required=""></textarea>
+                        <textarea class="form-control" name="message" placeholder="Write Message..." style="height: 180px" required minlength="10"></textarea>
                       </div>
                     </div>
                   </div>
@@ -222,6 +222,112 @@
   <script src="assets/js/include.js"></script>
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  
+  <!-- Contact Form Handler -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const contactForm = document.getElementById('contact-form');
+      if (!contactForm) return;
+
+      // Handle form submission
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Validate form using HTML5 validation
+        if (!contactForm.checkValidity()) {
+          contactForm.reportValidity();
+          return;
+        }
+
+        // Get form elements
+        const loading = contactForm.querySelector('.loading');
+        const errorMessage = contactForm.querySelector('.error-message');
+        const sentMessage = contactForm.querySelector('.sent-message');
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+
+        // Hide previous messages
+        if (errorMessage) errorMessage.classList.remove('d-block');
+        if (sentMessage) sentMessage.classList.remove('d-block');
+        if (loading) loading.classList.add('d-block');
+
+        // Disable submit button
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Sending...';
+        }
+
+        // Get form data
+        const formData = new FormData(contactForm);
+
+        // Send AJAX request
+        fetch('forms/contact.php', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => {
+          if (loading) loading.classList.remove('d-block');
+          
+          if (response.ok) {
+            return response.text();
+          } else {
+            throw new Error('Server error: ' + response.status);
+          }
+        })
+        .then(data => {
+          if (data.trim() === 'OK') {
+            // Success
+            if (sentMessage) {
+              sentMessage.classList.add('d-block');
+              sentMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+            contactForm.reset();
+          } else {
+            throw new Error(data || 'Failed to send message');
+          }
+        })
+        .catch(error => {
+          // Error
+          if (errorMessage) {
+            errorMessage.textContent = error.message || 'Failed to send message. Please try again later.';
+            errorMessage.classList.add('d-block');
+            errorMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        })
+        .finally(() => {
+          // Re-enable submit button
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'SEND MESSAGE';
+          }
+        });
+      });
+
+      // Ensure Enter key submits form in input fields (default behavior)
+      // For textarea: Ctrl+Enter or Cmd+Enter submits the form
+      const textInputs = contactForm.querySelectorAll('input[type="text"], input[type="email"]');
+      const textarea = contactForm.querySelector('textarea');
+      
+      // Enter key in text inputs submits the form (default HTML behavior)
+      textInputs.forEach(input => {
+        input.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            contactForm.dispatchEvent(new Event('submit', { cancelable: true }));
+          }
+        });
+      });
+
+      // Ctrl+Enter or Cmd+Enter in textarea submits the form
+      if (textarea) {
+        textarea.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+            e.preventDefault();
+            contactForm.dispatchEvent(new Event('submit', { cancelable: true }));
+          }
+        });
+      }
+    });
+  </script>
 
 </body>
 
