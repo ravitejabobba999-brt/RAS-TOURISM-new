@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Careers - Ras My Trip</title>
+  <meta name="description" content="">
+  <meta name="keywords" content=""> 
+
+  <!-- Favicons -->
+  <link href="assets/img/Logo/RAS Logo.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+ 
+</head>
+
+<body class="careers-page">
+
+  <!-- Header will be loaded here -->
+  <div id="header"></div>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title dark-background" data-aos="fade">
+      <div class="page-title-background">
+        <div class="page-title-overlay"></div>
+      </div>
+      <div class="container position-relative">
+        <h1>Careers</h1>
+        <p>Join our dynamic team and be part of creating unforgettable travel experiences. <br>Explore exciting career opportunities and grow with us in the tourism industry.</p>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li class="current">Careers</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Careers Section -->
+    <section id="careers" class="careers section">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        
+        <div class="row mb-5">
+          <div class="col-lg-8 mx-auto text-center" data-aos="fade-up" data-aos-delay="200">
+            <h2>Open Positions</h2>
+            <p>We're looking for talented individuals to join our team. Select a position below to view detailed requirements and experience needed.</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <div class="careers-container" data-aos="fade-up" data-aos-delay="300">
+              
+              <!-- Job Role Dropdown -->
+              <div class="job-selector mb-4">
+                <label for="job-role-select" class="form-label">Select Job Role</label>
+                <select id="job-role-select" class="form-select form-select-lg">
+                  <option value="">Choose a position...</option>
+                  <option value="tele-marketing">Tele Marketing</option>
+                  <option value="sale-manager">Sale Manager</option>
+                  <option value="senior-sale-manager">Senior Sale Manager</option>
+                  <option value="tour-manager">Tour Manager</option>
+                  <option value="operational-team">Operational Team</option>
+                  <option value="booking-team">Booking Team</option>
+                </select>
+              </div>
+
+              <!-- Job Details Container -->
+              <div id="job-details-container">
+                <!-- Job details will be dynamically displayed here -->
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- /Careers Section -->
+
+  </main>
+
+  <!-- Footer will be loaded here -->
+  <div id="footer"></div>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+
+  <!-- Include JS File -->
+  <script src="assets/js/include.js"></script>
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- Careers JS -->
+  <script>
+    // Job roles data with experience requirements
+    const jobRoles = {
+      'tele-marketing': {
+        title: 'Tele Marketing Executive',
+        experience: '0-2 years of experience in telemarketing, customer service, or sales. Fresh graduates are welcome.',
+        requirements: [
+          'Excellent communication and interpersonal skills',
+          'Ability to handle customer inquiries and objections',
+          'Basic knowledge of travel and tourism industry',
+          'Proficiency in English and local languages',
+          'Computer literate with basic MS Office skills',
+          'Patient and customer-oriented approach'
+        ]
+      },
+      'sale-manager': {
+        title: 'Sales Manager',
+        experience: '2-5 years of experience in sales, preferably in travel, tourism, or hospitality industry.',
+        requirements: [
+          'Proven track record in sales and achieving targets',
+          'Strong networking and relationship-building skills',
+          'Excellent communication and negotiation abilities',
+          'Knowledge of travel packages, destinations, and visa processes',
+          'Leadership and team management capabilities',
+          'Bachelor\'s degree in Business, Marketing, or related field preferred'
+        ]
+      },
+      'senior-sale-manager': {
+        title: 'Senior Sales Manager',
+        experience: '5-8 years of experience in sales management, with at least 3 years in a senior role within travel or tourism industry.',
+        requirements: [
+          'Extensive experience in sales strategy and team leadership',
+          'Proven ability to exceed sales targets and drive revenue growth',
+          'Strong business development and client relationship management',
+          'Deep knowledge of travel industry trends and market dynamics',
+          'Strategic thinking and problem-solving capabilities',
+          'Bachelor\'s or Master\'s degree in Business Administration or related field'
+        ]
+      },
+      'tour-manager': {
+        title: 'Tour Manager',
+        experience: '3-6 years of experience in tour operations, travel planning, or destination management.',
+        requirements: [
+          'Comprehensive knowledge of domestic and international destinations',
+          'Experience in itinerary planning and tour coordination',
+          'Strong organizational and time management skills',
+          'Excellent customer service and problem-solving abilities',
+          'Ability to work under pressure and handle emergencies',
+          'Relevant degree in Travel & Tourism, Hospitality, or related field'
+        ]
+      },
+      'operational-team': {
+        title: 'Operations Team Member',
+        experience: '1-4 years of experience in travel operations, logistics, or customer service within tourism industry.',
+        requirements: [
+          'Understanding of travel operations and logistics',
+          'Attention to detail and accuracy in documentation',
+          'Ability to coordinate with vendors, hotels, and transportation partners',
+          'Strong communication skills for client coordination',
+          'Problem-solving abilities and adaptability',
+          'Knowledge of travel documentation and visa processes'
+        ]
+      },
+      'booking-team': {
+        title: 'Booking Team Executive',
+        experience: '1-3 years of experience in reservations, bookings, or travel coordination. Freshers with travel industry interest are also welcome.',
+        requirements: [
+          'Familiarity with booking systems and reservation software',
+          'Attention to detail for accurate bookings and confirmations',
+          'Good communication skills for client interaction',
+          'Ability to handle multiple bookings simultaneously',
+          'Knowledge of flight, hotel, and tour booking processes',
+          'Customer-focused approach and patience'
+        ]
+      }
+    };
+
+    // Function to display job details
+    function displayJobDetails(jobKey) {
+      const container = document.getElementById('job-details-container');
+      const job = jobRoles[jobKey];
+
+      if (!job) {
+        container.innerHTML = '';
+        return;
+      }
+
+      const requirementsList = job.requirements.map(req => `<li><i class="bi bi-check-circle"></i> ${req}</li>`).join('');
+
+      container.innerHTML = `
+        <div class="job-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="job-header">
+            <h3>${job.title}</h3>
+            <span class="job-badge"><i class="bi bi-briefcase"></i> Full Time</span>
+          </div>
+          <div class="job-body">
+            <div class="experience-section">
+              <h4><i class="bi bi-award"></i> Experience Required</h4>
+              <p>${job.experience}</p>
+            </div>
+            <div class="requirements-section">
+              <h4><i class="bi bi-list-check"></i> Key Requirements</h4>
+              <ul class="requirements-list">
+                ${requirementsList}
+              </ul>
+            </div>
+            <div class="job-footer">
+              <a href="contact.html" class="btn btn-primary">
+                <i class="bi bi-send"></i> Apply Now
+              </a>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Event listener for job role selection
+    document.addEventListener('DOMContentLoaded', function() {
+      const jobSelect = document.getElementById('job-role-select');
+      
+      jobSelect.addEventListener('change', function() {
+        const selectedJob = this.value;
+        if (selectedJob) {
+          displayJobDetails(selectedJob);
+        } else {
+          document.getElementById('job-details-container').innerHTML = '';
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>
+
