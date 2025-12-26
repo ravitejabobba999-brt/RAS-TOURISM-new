@@ -48,10 +48,11 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 $name = isset($_POST['name']) ? trim($_POST['name']) : '';
 $email = isset($_POST['email']) ? trim($_POST['email']) : '';
 $subject = isset($_POST['subject']) ? trim($_POST['subject']) : '';
+$phone = isset($_POST['phone']) ? trim($_POST['phone']) : '';
 $message = isset($_POST['message']) ? trim($_POST['message']) : '';
 
 // Validate required fields
-if (empty($name) || empty($email) || empty($subject) || empty($message)) {
+if (empty($name) || empty($email) || empty($subject) || empty($phone) || empty($message)) {
     http_response_code(400);
     die('All fields are required');
 }
@@ -78,6 +79,7 @@ $email_subject = 'New Contact Form Submission: ' . $subject;
 $email_body = "You have received a new message from the contact form on your website.\n\n";
 $email_body .= "Name: " . $name . "\n";
 $email_body .= "Email: " . $email . "\n";
+$email_body .= "Phone: " . $phone . "\n";
 $email_body .= "Subject: " . $subject . "\n\n";
 $email_body .= "Message:\n" . $message . "\n";
 

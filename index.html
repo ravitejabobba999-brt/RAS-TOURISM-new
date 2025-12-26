@@ -92,12 +92,84 @@
                         required=""
                       >
                         <option value="">Choose your destination</option>
-                        <option value="europe">Europe</option>
-                        <option value="asia">Asia</option>
-                        <option value="america">America</option>
-                        <option value="africa">Africa</option>
-                        <option value="oceania">Oceania</option>
+                        <option value="thailand">Thailand</option>
+                        <option value="Bangkok,pattaya">Bangkok,pattaya</option>
+                        <option value="Phuket,karabi">Phuket,karabi</option>
+                        <option value="Singapore with cruise">Singapore with cruise</option>
+                        <option value="Singapore with cruise malaysia ">Singapore with cruise malaysia </option>
+                        <option value="Malaysia lankagvi ">Malaysia lankagvi</option>
+                        <option value="Dubai abudhabi ">Dubai abudhabi </option>
+                        <option value="Sri lanka">Sri lanka</option>
+                        <option value="Nepal">Nepal</option>
+                        <option value="Bhutan">Bhutan</option>
+                        <option value="Maldives">Maldives</option>
+                        <option value="Bali">Bali</option>
+                        <option value="Vietnam">Vietnam</option>
+                        <option value="Baku">Baku</option>
+                        <option value="Turkey">Turkey</option>
+                        <option value="Kazakhstan">Kazakhstan</option>
+                        <option value="Uzbekistan">Uzbekistan</option>
+                        <option value="China">China</option>
+                        <option value="Europe">Europe</option>
+                        <option value="France">France</option>
+                        <option value="Greece">Greece</option>
+                        <option value="USA">USA</option>
+                        <option value="Japan">Japan</option>
+                        <option value="australia">Australia</option>
+                        <option value="peru">Peru</option>
+                        <option value="Switzerland ">Switzerland option>
+                        <option value="sapin">Spain</option>
+                        <option value="paris">Paris</option>
+                        <option value="kambodia">Kambodia</option>
+                        <option value="saudi">Saudi</option>
+                        <option value="Andaman Nicobar">Andaman Nicobar</option>
                       </select>
+                    </div>
+
+                    <div class="form-group mb-3">
+                      <label for="booking-name">Name</label>
+                      <input
+                        type="text"
+                        name="name"
+                        id="booking-name"
+                        class="form-control"
+                        placeholder="Enter your name"
+                        required=""
+                      />
+                    </div>
+
+                    <div class="form-group mb-3">
+                      <label for="booking-mobile">Mobile No</label>
+                      <div class="phone-input-wrapper-booking">
+                        <span class="phone-prefix-booking">+91</span>
+                        <input
+                          type="tel"
+                          name="mobile"
+                          id="booking-mobile"
+                          class="form-control phone-input-booking"
+                          placeholder="Enter 10 digit number"
+                          required=""
+                          maxlength="10"
+                          pattern="[0-9]{10}"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="form-group mb-3">
+                      <label for="booking-whatsapp">WhatsApp No</label>
+                      <div class="phone-input-wrapper-booking">
+                        <span class="phone-prefix-booking">+91</span>
+                        <input
+                          type="tel"
+                          name="whatsapp"
+                          id="booking-whatsapp"
+                          class="form-control phone-input-booking"
+                          placeholder="Enter 10 digit number"
+                          required=""
+                          maxlength="10"
+                          pattern="[0-9]{10}"
+                        />
+                      </div>
                     </div>
 
                     <div class="row">
@@ -180,9 +252,9 @@
                       </select>
                     </div>
 
-                    <a href="destinations.html" class="btn btn-primary w-100">
+                    <button type="submit" class="btn btn-primary w-100">
                       Find Your Perfect Trip
-                    </a>
+                    </button>
                   </form>
                 </div>
               </div>
@@ -1107,5 +1179,118 @@
     <script src="assets/js/include.js"></script>
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
+
+    <!-- Booking Form Phone Input Validation -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Phone number input restrictions for booking form
+        const mobileInput = document.getElementById('booking-mobile');
+        const whatsappInput = document.getElementById('booking-whatsapp');
+
+        function setupPhoneInput(input) {
+          if (!input) return;
+
+          // Only allow numbers
+          input.addEventListener('input', function(e) {
+            let value = this.value.replace(/\D/g, '');
+            if (value.length > 10) {
+              value = value.substring(0, 10);
+            }
+            this.value = value;
+
+            if (value.length === 10) {
+              this.setCustomValidity('');
+            } else if (value.length > 0) {
+              this.setCustomValidity('Please enter exactly 10 digits');
+            } else {
+              this.setCustomValidity('Phone number is required');
+            }
+          });
+
+          // Prevent non-numeric input on keypress
+          input.addEventListener('keypress', function(e) {
+            if ([8, 9, 27, 13, 46].indexOf(e.keyCode) !== -1 ||
+                (e.keyCode === 65 && e.ctrlKey === true) ||
+                (e.keyCode === 67 && e.ctrlKey === true) ||
+                (e.keyCode === 86 && e.ctrlKey === true) ||
+                (e.keyCode === 88 && e.ctrlKey === true) ||
+                (e.keyCode >= 35 && e.keyCode <= 39)) {
+              return;
+            }
+            if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+              e.preventDefault();
+            }
+          });
+
+          // Prevent paste of non-numeric content
+          input.addEventListener('paste', function(e) {
+            e.preventDefault();
+            const paste = (e.clipboardData || window.clipboardData).getData('text');
+            const numbers = paste.replace(/\D/g, '');
+            if (numbers.length > 0) {
+              let value = numbers.substring(0, 10);
+              this.value = value;
+              this.dispatchEvent(new Event('input'));
+            }
+          });
+
+          // Validate on blur
+          input.addEventListener('blur', function() {
+            if (this.value.length > 0 && this.value.length !== 10) {
+              this.setCustomValidity('Please enter exactly 10 digits');
+            } else if (this.value.length === 10) {
+              this.setCustomValidity('');
+            }
+          });
+        }
+
+        setupPhoneInput(mobileInput);
+        setupPhoneInput(whatsappInput);
+
+        // Handle booking form submission
+        const bookingForm = document.querySelector('.booking-form form');
+        if (bookingForm) {
+          bookingForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get all form values
+            const destination = document.getElementById('destination').value || 'Not specified';
+            const name = document.getElementById('booking-name').value || 'Not provided';
+            const mobile = document.getElementById('booking-mobile').value || 'Not provided';
+            const whatsapp = document.getElementById('booking-whatsapp').value || 'Not provided';
+            const checkin = document.getElementById('checkin').value || 'Not specified';
+            const checkout = document.getElementById('checkout').value || 'Not specified';
+            const adults = document.getElementById('adults').value || 'Not specified';
+            const children = document.getElementById('children').value || '0';
+            const tourType = document.getElementById('tour-type').value || 'Not specified';
+
+            // Format WhatsApp message
+            const whatsappMessage = `*New Travel Enquiry*\n\n` +
+              `*Name:* ${name}\n` +
+              `*Mobile No:* +91 ${mobile}\n` +
+              `*WhatsApp No:* +91 ${whatsapp}\n\n` +
+              `*Destination:* ${destination}\n` +
+              `*Departure Date:* ${checkin}\n` +
+              `*Return Date:* ${checkout}\n` +
+              `*Adults:* ${adults}\n` +
+              `*Children:* ${children}\n` +
+              `*Tour Type:* ${tourType}\n\n` +
+              `I would like to know more about this travel package.`;
+
+            // Encode message for URL
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+
+            // WhatsApp number (same as footer)
+            const whatsappNumber = '919100223823';
+
+            // Create WhatsApp URL
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+            // Open WhatsApp in a new tab
+            window.open(whatsappUrl, '_blank');
+          });
+        }
+      });
+    </script>
   </body>
 </html>
