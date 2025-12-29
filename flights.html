@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Flights - Ras My Trip</title>
+    <meta name="description" content="Search and compare flight prices from multiple airlines" />
+    <meta name="keywords" content="flights, airline tickets, flight booking, cheap flights" />
+
+    <!-- Favicons -->
+    <link href="assets/img/Logo/RAS Logo.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet" />
+  </head>
+
+  <body class="flights-page">
+    <!-- Header will be loaded here -->
+    <div id="header"></div>
+
+    <main class="main">
+      <!-- Flight Search Section -->
+      <section id="flight-search" class="flight-search section">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+          <div class="flight-search-form-wrapper">
+            <form id="flight-search-form" class="php-email-form horizontal-search-form">
+              <div class="search-form-row">
+                <!-- Trip Type -->
+                <div class="search-field trip-type-field">
+                  <div class="trip-type-selector">
+                    <label class="trip-type-option">
+                      <input type="radio" name="trip_type" value="round_trip" checked>
+                      <span>Round Trip</span>
+                    </label>
+                    <label class="trip-type-option">
+                      <input type="radio" name="trip_type" value="one_way">
+                      <span>One Way</span>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Departure Airport -->
+                <div class="search-field">
+                  <label for="departure_city" class="search-label">From</label>
+                  <div class="autocomplete-wrapper">
+                    <input
+                      type="text"
+                      name="departure_city"
+                      id="departure_city"
+                      class="form-control city-input"
+                      placeholder="Search and select city"
+                      required
+                      autocomplete="off"
+                    />
+                    <input type="hidden" name="departure_id" id="departure_id" />
+                    <div class="autocomplete-suggestions" id="departure-suggestions"></div>
+                  </div>
+                </div>
+
+                <!-- Arrival Airport -->
+                <div class="search-field">
+                  <label for="arrival_city" class="search-label">To</label>
+                  <div class="autocomplete-wrapper">
+                    <input
+                      type="text"
+                      name="arrival_city"
+                      id="arrival_city"
+                      class="form-control city-input"
+                      placeholder="Search and select city"
+                      required
+                      autocomplete="off"
+                    />
+                    <input type="hidden" name="arrival_id" id="arrival_id" />
+                    <div class="autocomplete-suggestions" id="arrival-suggestions"></div>
+                  </div>
+                </div>
+
+                <!-- Departure Date -->
+                <div class="search-field">
+                  <label for="outbound_date" class="search-label">Departure</label>
+                  <input
+                    type="date"
+                    name="outbound_date"
+                    id="outbound_date"
+                    class="form-control"
+                    required
+                    min=""
+                  />
+                </div>
+
+                <!-- Return Date -->
+                <div class="search-field" id="return-date-group">
+                  <label for="return_date" class="search-label">Return</label>
+                  <input
+                    type="date"
+                    name="return_date"
+                    id="return_date"
+                    class="form-control"
+                    min=""
+                  />
+                </div>
+
+                <!-- Passengers -->
+                <div class="search-field">
+                  <label for="adults" class="search-label">Adults</label>
+                  <select name="adults" id="adults" class="form-select">
+                    <option value="1" selected>1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6+</option>
+                  </select>
+                </div>
+
+                <!-- Children -->
+                <div class="search-field">
+                  <label for="children" class="search-label">Children</label>
+                  <select name="children" id="children" class="form-select">
+                    <option value="0" selected>0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4+</option>
+                  </select>
+                </div>
+
+                <!-- Class -->
+                <div class="search-field">
+                  <label for="travel_class" class="search-label">Class</label>
+                  <select name="travel_class" id="travel_class" class="form-select">
+                    <option value="1" selected>Economy</option>
+                    <option value="2">Premium</option>
+                    <option value="3">Business</option>
+                    <option value="4">First</option>
+                  </select>
+                </div>
+
+                <!-- Stops -->
+                <div class="search-field">
+                  <label for="stops" class="search-label">Stops</label>
+                  <select name="stops" id="stops" class="form-select">
+                    <option value="0" selected>Any</option>
+                    <option value="1">Nonstop</option>
+                    <option value="2">1 stop</option>
+                    <option value="3">2 stops</option>
+                  </select>
+                </div>
+
+                <!-- Search Button -->
+                <div class="search-field search-button-field">
+                  <button type="submit" class="btn btn-primary search-btn">
+                    <i class="bi bi-search me-2"></i>Search
+                  </button>
+                </div>
+              </div>
+
+              <!-- Loading, Error, and Success Messages -->
+              <div class="loading">Searching for flights...</div>
+              <div class="error-message"></div>
+              <div class="sent-message"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+      <!-- /Flight Search Section -->
+
+      <!-- Flight Results Section -->
+      <section id="flight-results" class="flight-results section" style="display: none;">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+          <!-- Filters and Sort Section -->
+          <div class="flight-filters-section mb-4" style="display: none;">
+            <div class="row g-3">
+              <div class="col-lg-3 col-md-6">
+                <label for="sort-by" class="filter-label">Sort By</label>
+                <select id="sort-by" class="form-select">
+                  <option value="default">Default (Best Flights)</option>
+                  <option value="price_low">Price: Low to High</option>
+                  <option value="price_high">Price: High to Low</option>
+                  <option value="duration_short">Duration: Shortest</option>
+                  <option value="duration_long">Duration: Longest</option>
+                  <option value="departure_early">Departure: Earliest</option>
+                  <option value="departure_late">Departure: Latest</option>
+                </select>
+              </div>
+              <div class="col-lg-9 col-md-6">
+                <label class="filter-label">Filter by Airlines</label>
+                <div id="airline-filters" class="airline-filters">
+                  <!-- Airlines will be populated dynamically -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Price Insights -->
+          <div id="price-insights" class="price-insights-card mb-4" style="display: none;">
+            <div class="row align-items-center">
+              <div class="col-md-4 text-center">
+                <div class="insight-item">
+                  <div class="insight-label">Lowest Price</div>
+                  <div class="insight-value" id="lowest-price">₹0</div>
+                </div>
+              </div>
+              <div class="col-md-4 text-center">
+                <div class="insight-item">
+                  <div class="insight-label">Price Level</div>
+                  <div class="insight-value" id="price-level">-</div>
+                </div>
+              </div>
+              <div class="col-md-4 text-center">
+                <div class="insight-item">
+                  <div class="insight-label">Typical Range</div>
+                  <div class="insight-value" id="typical-range">₹0 - ₹0</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Best Flights -->
+          <div id="best-flights-section" style="display: none;">
+            <h3 class="section-subtitle mb-4">Best Flights</h3>
+            <div id="best-flights-container" class="row gy-4"></div>
+          </div>
+
+          <!-- Other Flights -->
+          <div id="other-flights-section" style="display: none;">
+            <h3 class="section-subtitle mb-4 mt-5">More Flights</h3>
+            <div id="other-flights-container" class="row gy-4"></div>
+          </div>
+
+          <!-- No Results Message -->
+          <div id="no-results" class="text-center py-5" style="display: none;">
+            <i class="bi bi-inbox" style="font-size: 4rem; color: #ccc; margin-bottom: 1rem;"></i>
+            <h4>No flights found</h4>
+            <p>Try adjusting your search criteria and search again.</p>
+          </div>
+        </div>
+      </section>
+      <!-- /Flight Results Section -->
+    </main>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer"></div>
+
+    <!-- Scroll Top -->
+    <a
+      href="#"
+      id="scroll-top"
+      class="scroll-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+
+    <!-- Include JS File -->
+    <script src="assets/js/include.js"></script>
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+    <!-- Airports Data JS File -->
+    <script src="assets/js/airports-data.js"></script>
+    <!-- Flights JS File -->
+    <script src="assets/js/flights.js"></script>
+  </body>
+</html>
+

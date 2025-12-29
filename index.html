@@ -84,59 +84,69 @@
                 <div class="booking-form">
                   <h3 class="form-title">Plan Your Adventure</h3>
                   <form action="" class="">
+                    <!-- Trip Type -->
                     <div class="form-group mb-3">
-                      <label for="destination">Destination</label>
-                      <select
-                        name="destination"
-                        id="destination"
-                        class="form-select"
-                        required=""
-                      >
-                        <option value="">Choose your destination</option>
-                        <option value="thailand">Thailand</option>
-                        <option value="Bangkok,pattaya">Bangkok,pattaya</option>
-                        <option value="Phuket,karabi">Phuket,karabi</option>
-                        <option value="Singapore with cruise">Singapore with cruise</option>
-                        <option value="Singapore with cruise malaysia ">Singapore with cruise malaysia </option>
-                        <option value="Malaysia lankagvi ">Malaysia lankagvi</option>
-                        <option value="Dubai abudhabi ">Dubai abudhabi </option>
-                        <option value="Sri lanka">Sri lanka</option>
-                        <option value="Nepal">Nepal</option>
-                        <option value="Bhutan">Bhutan</option>
-                        <option value="Maldives">Maldives</option>
-                        <option value="Bali">Bali</option>
-                        <option value="Vietnam">Vietnam</option>
-                        <option value="Baku">Baku</option>
-                        <option value="Turkey">Turkey</option>
-                        <option value="Kazakhstan">Kazakhstan</option>
-                        <option value="Uzbekistan">Uzbekistan</option>
-                        <option value="China">China</option>
-                        <option value="Europe">Europe</option>
-                        <option value="France">France</option>
-                        <option value="Greece">Greece</option>
-                        <option value="USA">USA</option>
-                        <option value="Japan">Japan</option>
-                        <option value="australia">Australia</option>
-                        <option value="peru">Peru</option>
-                        <option value="Switzerland ">Switzerland option>
-                        <option value="sapin">Spain</option>
-                        <option value="paris">Paris</option>
-                        <option value="kambodia">Kambodia</option>
-                        <option value="saudi">Saudi</option>
-                        <option value="Andaman Nicobar">Andaman Nicobar</option>
-                      </select>
+                      <label class="d-block mb-2">Trip Type</label>
+                      <div class="trip-type-selector">
+                        <label class="trip-type-option">
+                          <input type="radio" name="trip_type" value="round_trip" checked>
+                          <span>Round Trip</span>
+                        </label>
+                        <label class="trip-type-option">
+                          <input type="radio" name="trip_type" value="one_way">
+                          <span>One Way</span>
+                        </label>
+                      </div>
                     </div>
 
                     <div class="form-group mb-3">
-                      <label for="booking-name">Name</label>
+                      <label for="booking-name">Full Name</label>
                       <input
                         type="text"
                         name="name"
                         id="booking-name"
                         class="form-control"
-                        placeholder="Enter your name"
-                        required=""
+                        placeholder="Enter Full Name"
                       />
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group mb-3">
+                          <label for="booking-from-city">From</label>
+                          <div class="autocomplete-wrapper">
+                            <input
+                              type="text"
+                              name="from_city"
+                              id="booking-from-city"
+                              class="form-control city-input"
+                              placeholder="Search and select city"
+                              required
+                              autocomplete="off"
+                            />
+                            <input type="hidden" name="from_airport_code" id="booking-from-code" />
+                            <div class="autocomplete-suggestions" id="booking-from-suggestions"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group mb-3">
+                          <label for="booking-to-city">To</label>
+                          <div class="autocomplete-wrapper">
+                            <input
+                              type="text"
+                              name="to_city"
+                              id="booking-to-city"
+                              class="form-control city-input"
+                              placeholder="Search and select city"
+                              required
+                              autocomplete="off"
+                            />
+                            <input type="hidden" name="to_airport_code" id="booking-to-code" />
+                            <div class="autocomplete-suggestions" id="booking-to-suggestions"></div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
 
                     <div class="form-group mb-3">
@@ -145,21 +155,6 @@
                         type="tel"
                         name="mobile"
                         id="booking-mobile"
-                        class="form-control"
-                        placeholder="+91 Enter 10 digit number"
-                        required=""
-                        maxlength="14"
-                        pattern="\+91 [0-9]{10}"
-                        value="+91 "
-                      />
-                    </div>
-
-                    <div class="form-group mb-3">
-                      <label for="booking-whatsapp">WhatsApp No</label>
-                      <input
-                        type="tel"
-                        name="whatsapp"
-                        id="booking-whatsapp"
                         class="form-control"
                         placeholder="+91 Enter 10 digit number"
                         required=""
@@ -183,7 +178,7 @@
                           />
                         </div>
                       </div>
-                      <div class="col-md-6">
+                      <div class="col-md-6" id="booking-return-date-group">
                         <div class="form-group mb-3">
                           <label for="checkout">Return Date</label>
                           <input
@@ -192,7 +187,6 @@
                             id="checkout"
                             class="form-control"
                             placeholder="Select return date"
-                            required=""
                           />
                         </div>
                       </div>
@@ -230,23 +224,6 @@
                           </select>
                         </div>
                       </div>
-                    </div>
-
-                    <div class="form-group mb-3">
-                      <label for="tour-type">Tour Type</label>
-                      <select
-                        name="tour_type"
-                        id="tour-type"
-                        class="form-select"
-                        required=""
-                      >
-                        <option value="">Select tour type</option>
-                        <option value="adventure">Adventure</option>
-                        <option value="cultural">Cultural</option>
-                        <option value="relaxation">Relaxation</option>
-                        <option value="family">Family</option>
-                        <option value="luxury">Luxury</option>
-                      </select>
                     </div>
 
                     <button type="submit" class="btn btn-primary w-100">
@@ -1176,13 +1153,14 @@
     <script src="assets/js/include.js"></script>
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
+    <!-- Airports Data JS File -->
+    <script src="assets/js/airports-data.js"></script>
 
     <!-- Booking Form Phone Input Validation -->
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         // Phone number input restrictions for booking form
         const mobileInput = document.getElementById('booking-mobile');
-        const whatsappInput = document.getElementById('booking-whatsapp');
 
         function setupPhoneInput(input) {
           if (!input) return;
@@ -1276,46 +1254,238 @@
         }
 
         setupPhoneInput(mobileInput);
-        setupPhoneInput(whatsappInput);
 
-        // Handle booking form submission
+        // Initialize city autocomplete for booking form
+        function initializeBookingFormAutocomplete() {
+          const fromInput = document.getElementById('booking-from-city');
+          const toInput = document.getElementById('booking-to-city');
+          const fromSuggestions = document.getElementById('booking-from-suggestions');
+          const toSuggestions = document.getElementById('booking-to-suggestions');
+          const fromCodeInput = document.getElementById('booking-from-code');
+          const toCodeInput = document.getElementById('booking-to-code');
+
+          function setupAutocomplete(input, suggestionsContainer, codeInput) {
+            let selectedIndex = -1;
+            let currentSuggestions = [];
+
+            function showSuggestions(suggestions) {
+              if (!suggestions || suggestions.length === 0) {
+                suggestionsContainer.innerHTML = '';
+                suggestionsContainer.style.display = 'none';
+                return;
+              }
+
+              currentSuggestions = suggestions;
+              suggestionsContainer.innerHTML = suggestions.map((airport, index) => `
+                <div class="suggestion-item" data-index="${index}" data-code="${airport.code}">
+                  <div class="suggestion-city">${airport.city}, ${airport.country}</div>
+                  <div class="suggestion-airport">${airport.name} (${airport.code})</div>
+                </div>
+              `).join('');
+
+              suggestionsContainer.style.display = 'block';
+
+              // Add click handlers
+              suggestionsContainer.querySelectorAll('.suggestion-item').forEach((item, index) => {
+                item.addEventListener('click', function() {
+                  const airport = currentSuggestions[index];
+                  input.value = `${airport.city}, ${airport.country}`;
+                  codeInput.value = airport.code;
+                  input.classList.add('is-valid');
+                  suggestionsContainer.style.display = 'none';
+                  selectedIndex = -1;
+                });
+
+                item.addEventListener('mouseenter', function() {
+                  suggestionsContainer.querySelectorAll('.suggestion-item').forEach(i => i.classList.remove('active'));
+                  this.classList.add('active');
+                  selectedIndex = index;
+                });
+              });
+            }
+
+            function hideSuggestions() {
+              setTimeout(() => {
+                suggestionsContainer.style.display = 'none';
+              }, 200);
+            }
+
+            input.addEventListener('input', function() {
+              const query = this.value.trim();
+              
+              // Clear validation and code if user is typing
+              if (query.length === 0) {
+                codeInput.value = '';
+                input.classList.remove('is-valid');
+              }
+              
+              if (query.length < 2) {
+                suggestionsContainer.style.display = 'none';
+                codeInput.value = '';
+                input.classList.remove('is-valid');
+                return;
+              }
+
+              const suggestions = searchAirports(query);
+              if (suggestions.length > 0) {
+                showSuggestions(suggestions.slice(0, 10));
+              } else {
+                suggestionsContainer.style.display = 'none';
+                codeInput.value = '';
+                input.classList.remove('is-valid');
+              }
+            });
+
+            input.addEventListener('focus', function() {
+              const query = this.value.trim();
+              if (query.length >= 2) {
+                const suggestions = searchAirports(query);
+                if (suggestions.length > 0) {
+                  showSuggestions(suggestions.slice(0, 10));
+                }
+              } else {
+                // Show some popular airports when focusing on empty input
+                const popularAirports = (window.airportsData || []).slice(0, 10);
+                showSuggestions(popularAirports);
+              }
+            });
+
+            input.addEventListener('blur', hideSuggestions);
+
+            // Keyboard navigation
+            input.addEventListener('keydown', function(e) {
+              if (!suggestionsContainer.style.display || suggestionsContainer.style.display === 'none') {
+                return;
+              }
+
+              const items = suggestionsContainer.querySelectorAll('.suggestion-item');
+
+              if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                selectedIndex = (selectedIndex + 1) % items.length;
+                items[selectedIndex].scrollIntoView({ block: 'nearest' });
+                items.forEach((item, idx) => {
+                  item.classList.toggle('active', idx === selectedIndex);
+                });
+              } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                selectedIndex = selectedIndex <= 0 ? items.length - 1 : selectedIndex - 1;
+                items[selectedIndex].scrollIntoView({ block: 'nearest' });
+                items.forEach((item, idx) => {
+                  item.classList.toggle('active', idx === selectedIndex);
+                });
+              } else if (e.key === 'Enter' && selectedIndex >= 0) {
+                e.preventDefault();
+                items[selectedIndex].click();
+              } else if (e.key === 'Escape') {
+                suggestionsContainer.style.display = 'none';
+                selectedIndex = -1;
+              }
+            });
+          }
+
+          if (fromInput && fromSuggestions && fromCodeInput) {
+            setupAutocomplete(fromInput, fromSuggestions, fromCodeInput);
+          }
+
+          if (toInput && toSuggestions && toCodeInput) {
+            setupAutocomplete(toInput, toSuggestions, toCodeInput);
+          }
+        }
+
+        // Handle trip type change on home page
+        function handleBookingTripTypeChange() {
+          const tripTypeRadios = document.querySelectorAll('input[name="trip_type"]');
+          const returnDateGroup = document.getElementById('booking-return-date-group');
+          const returnDateInput = document.getElementById('checkout');
+
+          tripTypeRadios.forEach(radio => {
+            radio.addEventListener('change', function() {
+              if (this.value === 'one_way') {
+                if (returnDateGroup) returnDateGroup.style.display = 'none';
+                if (returnDateInput) {
+                  returnDateInput.removeAttribute('required');
+                  returnDateInput.value = '';
+                }
+              } else {
+                if (returnDateGroup) returnDateGroup.style.display = 'block';
+                if (returnDateInput) returnDateInput.setAttribute('required', '');
+              }
+            });
+          });
+
+          // Set initial state
+          const checkedRadio = document.querySelector('input[name="trip_type"]:checked');
+          if (checkedRadio && checkedRadio.value === 'one_way') {
+            if (returnDateGroup) returnDateGroup.style.display = 'none';
+            if (returnDateInput) returnDateInput.removeAttribute('required');
+          }
+        }
+
+        // Handle booking form submission - send WhatsApp message
         const bookingForm = document.querySelector('.booking-form form');
         if (bookingForm) {
           bookingForm.addEventListener('submit', function(e) {
             e.preventDefault();
 
-            // Get all form values
-            const destination = document.getElementById('destination').value || 'Not specified';
+            // Get form values
             const name = document.getElementById('booking-name').value || 'Not provided';
             const mobile = document.getElementById('booking-mobile').value || 'Not provided';
-            const whatsapp = document.getElementById('booking-whatsapp').value || 'Not provided';
+            const fromCity = document.getElementById('booking-from-city').value || 'Not specified';
+            const toCity = document.getElementById('booking-to-city').value || 'Not specified';
+            const fromCode = document.getElementById('booking-from-code').value;
+            const toCode = document.getElementById('booking-to-code').value;
             const checkin = document.getElementById('checkin').value || 'Not specified';
             const checkout = document.getElementById('checkout').value || 'Not specified';
-            const adults = document.getElementById('adults').value || 'Not specified';
+            const adults = document.getElementById('adults').value || '1';
             const children = document.getElementById('children').value || '0';
-            const tourType = document.getElementById('tour-type').value || 'Not specified';
+            const tripType = document.querySelector('input[name="trip_type"]:checked')?.value || 'round_trip';
+
+            // Validate required fields
+            if (!name || name.trim() === '') {
+              alert('Please enter your full name.');
+              return;
+            }
+
+            // Validate airport codes - must be selected from dropdown
+            if (!fromCode || !toCode) {
+              alert('Please select valid cities from the dropdown suggestions for both From and To fields.');
+              return;
+            }
+
+            // Validate dates
+            if (!checkin || checkin === 'Not specified') {
+              alert('Please select a departure date.');
+              return;
+            }
+
+            // Validate return date for round trip
+            if (tripType === 'round_trip' && (!checkout || checkout === 'Not specified')) {
+              alert('Please select a return date for round trip.');
+              return;
+            }
 
             // Extract just the number part (remove +91 if present, then add it back)
             const mobileNumber = mobile.startsWith('+91 ') ? mobile.substring(4) : mobile.startsWith('+91') ? mobile.substring(3) : mobile;
-            const whatsappFormNumber = whatsapp.startsWith('+91 ') ? whatsapp.substring(4) : whatsapp.startsWith('+91') ? whatsapp.substring(3) : whatsapp;
 
             // Format WhatsApp message
+            const tripTypeText = tripType === 'round_trip' ? 'Round Trip' : 'One Way';
             const whatsappMessage = `*New Travel Enquiry*\n\n` +
               `*Name:* ${name}\n` +
-              `*Mobile No:* +91 ${mobileNumber}\n` +
-              `*WhatsApp No:* +91 ${whatsappFormNumber}\n\n` +
-              `*Destination:* ${destination}\n` +
+              `*Mobile No:* +91 ${mobileNumber}\n\n` +
+              `*Trip Type:* ${tripTypeText}\n` +
+              `*From:* ${fromCity} (${fromCode})\n` +
+              `*To:* ${toCity} (${toCode})\n` +
               `*Departure Date:* ${checkin}\n` +
-              `*Return Date:* ${checkout}\n` +
+              `${tripType === 'round_trip' ? `*Return Date:* ${checkout}\n` : ''}` +
               `*Adults:* ${adults}\n` +
-              `*Children:* ${children}\n` +
-              `*Tour Type:* ${tourType}\n\n` +
+              `*Children:* ${children}\n\n` +
               `I would like to know more about this travel package.`;
 
             // Encode message for URL
             const encodedMessage = encodeURIComponent(whatsappMessage);
 
-            // WhatsApp number (same as footer)
+            // WhatsApp number
             const whatsappNumber = '919100223823';
 
             // Create WhatsApp URL
@@ -1323,6 +1493,21 @@
 
             // Open WhatsApp in a new tab
             window.open(whatsappUrl, '_blank');
+          });
+        }
+
+        // Initialize trip type handler
+        handleBookingTripTypeChange();
+
+        // Initialize autocomplete when DOM is ready
+        if (typeof searchAirports !== 'undefined') {
+          initializeBookingFormAutocomplete();
+        } else {
+          // Wait for airports-data.js to load
+          window.addEventListener('load', function() {
+            if (typeof searchAirports !== 'undefined') {
+              initializeBookingFormAutocomplete();
+            }
           });
         }
       });
