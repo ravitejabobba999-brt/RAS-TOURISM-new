@@ -1,6 +1,7 @@
 # Environment variables
 .env
-assets/
+assets/img/
+assets/vendor/
 # Node modules
 node_modules/
 

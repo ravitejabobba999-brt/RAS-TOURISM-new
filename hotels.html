@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Hotels - Ras My Trip</title>
+    <meta name="description" content="Search and compare hotel prices from multiple booking sites" />
+    <meta name="keywords" content="hotels, hotel booking, vacation rentals, accommodation" />
+
+    <!-- Favicons -->
+    <link href="assets/img/Logo/RAS Logo.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet" />
+  </head>
+
+  <body class="hotels-page">
+    <div class="page-wrapper">
+      <!-- Header will be loaded here -->
+      <div id="header"></div>
+
+      <main class="main">
+      <!-- Hotel Search Section -->
+      <section id="hotel-search" class="hotel-search section">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+          <div class="hotel-search-form-wrapper">
+            <form id="hotel-search-form" class="php-email-form horizontal-search-form">
+              <div class="search-form-row">
+                <!-- Location/Hotel Name -->
+                <div class="search-field" style="flex: 1 1 250px;">
+                  <label for="location" class="search-label">Location or Hotel Name</label>
+                  <input
+                    type="text"
+                    name="location"
+                    id="location"
+                    class="form-control"
+                    placeholder="Enter city, hotel name, or location"
+                    required
+                    autocomplete="off"
+                  />
+                </div>
+
+                <!-- Check-in Date -->
+                <div class="search-field">
+                  <label for="check_in_date" class="search-label">Check-in</label>
+                  <input
+                    type="date"
+                    name="check_in_date"
+                    id="check_in_date"
+                    class="form-control"
+                    required
+                    min=""
+                  />
+                </div>
+
+                <!-- Check-out Date -->
+                <div class="search-field">
+                  <label for="check_out_date" class="search-label">Check-out</label>
+                  <input
+                    type="date"
+                    name="check_out_date"
+                    id="check_out_date"
+                    class="form-control"
+                    required
+                    min=""
+                  />
+                </div>
+
+                <!-- Adults -->
+                <div class="search-field">
+                  <label for="adults" class="search-label">Adults</label>
+                  <select name="adults" id="adults" class="form-select">
+                    <option value="1">1</option>
+                    <option value="2" selected>2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6+</option>
+                  </select>
+                </div>
+
+                <!-- Children -->
+                <div class="search-field">
+                  <label for="children" class="search-label">Children</label>
+                  <select name="children" id="children" class="form-select">
+                    <option value="0" selected>0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4+</option>
+                  </select>
+                </div>
+
+                <!-- Search Button -->
+                <div class="search-field search-button-field">
+                  <button type="submit" class="btn btn-primary search-btn">
+                    <i class="bi bi-search me-2"></i>Search
+                  </button>
+                </div>
+              </div>
+
+              <!-- Loading, Error, and Success Messages -->
+              <div class="loading">Searching for hotels...</div>
+              <div class="error-message"></div>
+              <div class="sent-message"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+      <!-- /Hotel Search Section -->
+
+      <!-- Hotel Results Section -->
+      <section id="hotel-results" class="hotel-results section" style="display: none;">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+          <!-- Filters and Sort Section -->
+          <div class="hotel-filters-section mb-4" style="display: none;">
+            <div class="row g-3">
+              <div class="col-lg-3 col-md-6">
+                <label for="sort-by" class="filter-label">Sort By</label>
+                <select id="sort-by" class="form-select">
+                  <option value="default">Default (Relevance)</option>
+                  <option value="price_low">Price: Low to High</option>
+                  <option value="price_high">Price: High to Low</option>
+                  <option value="rating_high">Rating: Highest</option>
+                  <option value="reviews_high">Most Reviewed</option>
+                </select>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <label for="hotel-class-filter" class="filter-label">Hotel Class</label>
+                <select id="hotel-class-filter" class="form-select">
+                  <option value="">All Classes</option>
+                  <option value="2">2 Star</option>
+                  <option value="3">3 Star</option>
+                  <option value="4">4 Star</option>
+                  <option value="5">5 Star</option>
+                </select>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <label for="min-price" class="filter-label">Min Price (₹)</label>
+                <input type="number" id="min-price" class="form-control" placeholder="Min" min="0">
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <label for="max-price" class="filter-label">Max Price (₹)</label>
+                <input type="number" id="max-price" class="form-control" placeholder="Max" min="0">
+              </div>
+            </div>
+          </div>
+
+          <!-- Properties Container -->
+          <div id="properties-container" class="row gy-4"></div>
+
+          <!-- No Results Message -->
+          <div id="no-results" class="text-center py-5" style="display: none;">
+            <i class="bi bi-inbox" style="font-size: 4rem; color: #ccc; margin-bottom: 1rem;"></i>
+            <h4>No hotels found</h4>
+            <p>Try adjusting your search criteria and search again.</p>
+          </div>
+        </div>
+      </section>
+      <!-- /Hotel Results Section -->
+      </main>
+
+      <!-- Footer will be loaded here -->
+      <div id="footer"></div>
+    </div>
+
+    <!-- Scroll Top -->
+    <a
+      href="#"
+      id="scroll-top"
+      class="scroll-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+
+    <!-- Include JS File -->
+    <script src="assets/js/include.js"></script>
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+    <!-- Hotels JS File -->
+    <script src="assets/js/hotels.js"></script>
+  </body>
+</html>
+
